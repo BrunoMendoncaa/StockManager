@@ -12,9 +12,16 @@ class ctrlCliente {
 
       async delete(request, response){
             const id = request.params.id
-            console.log(`Cliente a ser removido: ${id}`)
             await repoCliente.delete(id)
             response.status(200).send('ok')
+      }
+
+      async findByPhone(request, response){
+            const {telefone} = request.params
+            const all_finded = await repoCliente.findByPhone(telefone)
+
+            response.json(all_finded)
+            
       }
 }
 

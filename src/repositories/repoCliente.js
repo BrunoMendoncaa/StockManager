@@ -31,6 +31,8 @@ class repoCliente{
       }
 
       async delete(in_id){
+            console.log(`Cliente a ser removido: ${in_id}`)
+
             const cliente_a_remover = await this.clientes.findIndex(cliente => cliente.id_cliente == in_id)
             if (cliente_a_remover != -1){
                   this.clientes.splice(cliente_a_remover,1)
@@ -38,6 +40,13 @@ class repoCliente{
             }else{
                   console.log('Cliente não localizado')
             }
+      }
+
+      async findByPhone(in_phone){
+            console.log(`Localizando cadastros com o telefone: ${in_phone}`)
+            
+            const all_finded = await this.clientes.filter(cliente => cliente.telefone == in_phone)
+            return all_finded
       }
 
 }
