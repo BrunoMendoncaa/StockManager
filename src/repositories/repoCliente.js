@@ -77,6 +77,17 @@ class repoCliente{
             return cliente
       }
 
+      async getByStatus(in_status){
+            console.log(`Buscando cadastros com status: ${in_status}`)
+            if (in_status == 'ativo' || in_status == 'inativo'){
+                  const filter_content = await this.clientes.filter(cliente => cliente.status == in_status)
+                  return filter_content
+            }else{
+                  console.log('Status inválido')
+                  return []
+            }
+      }
+
 }
 
 export default new repoCliente()

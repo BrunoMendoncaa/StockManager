@@ -35,6 +35,11 @@ class ctrlCliente {
             const cliente = await repoCliente.disableOrEnable(request.params.id)
             response.json({'id_cliente' : cliente.id_cliente, 'status': cliente.status})
       }
+
+      async getByStatus(request, response){
+            const filter_content = await repoCliente.getByStatus(request.params.status)
+            response.json(filter_content)
+      }
 }
 
 export default new ctrlCliente
