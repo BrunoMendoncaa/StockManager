@@ -44,9 +44,37 @@ class repoCliente{
 
       async findByPhone(in_phone){
             console.log(`Localizando cadastros com o telefone: ${in_phone}`)
-            
+
             const all_finded = await this.clientes.filter(cliente => cliente.telefone == in_phone)
             return all_finded
+      }
+
+      async update(in_content, in_id){
+            console.log(`Alterando dados do cliente: ${in_id} `)
+            const {nome, telefone} = in_content
+            const dt_alteracao = new Date().toISOString().split('T')[0]
+            const cliente = await this.clientes.find(currentCliente => currentCliente.id_cliente == in_id)
+            
+            cliente.dt_alteracao = dt_alteracao
+            if (nome){cliente.nome = nome}
+            if (telefone){cliente.telefone = telefone}
+
+            
+
+            return cliente
+      }
+
+      async disableOrEnable(in_id){
+            const cliente = await this.clientes.find(currentCliente => currentCliente.id_cliente == in_id)
+            if (cliente.status == 'ativo'){
+                  console.log(`Desativando o cliente: ${in_id}`)
+                  cliente.status = 'inativo'
+            }else{
+                  console.log(`Ativando o cliente: ${in_id}`)
+                  cliente.status = 'ativo'
+            }
+
+            return cliente
       }
 
 }

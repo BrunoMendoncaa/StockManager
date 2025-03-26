@@ -23,6 +23,18 @@ class ctrlCliente {
             response.json(all_finded)
             
       }
+
+      async update(request, response){
+            const {id} = request.params
+            const update_cliente = await repoCliente.update(request.body, id)
+
+            response.json(update_cliente)
+      }
+
+      async disableOrEnable(request, response){
+            const cliente = await repoCliente.disableOrEnable(request.params.id)
+            response.json({'id_cliente' : cliente.id_cliente, 'status': cliente.status})
+      }
 }
 
 export default new ctrlCliente
