@@ -6,28 +6,27 @@ class ctrlCliente {
       }
 
       async create(request, response){
+            if (!request.body.nome || !request.body.telefone){
+                  response.status(400).json({'msg':'Nome e telefone são obrigatorios.'})
+                  return
+            }
+
             const new_cliente = await repoCliente.create(request.body)
             response.status(201).json(new_cliente)
       }
 
       async delete(request, response){
-            const id = request.params.id
-            await repoCliente.delete(id)
+            await repoCliente.delete(request.params.id)
             response.status(200).send('ok')
       }
 
       async findByPhone(request, response){
-            const {telefone} = request.params
-            const all_finded = await repoCliente.findByPhone(telefone)
-
+            const all_finded = await repoCliente.findByPhone(request.params.telefone)
             response.json(all_finded)
-            
       }
 
       async update(request, response){
-            const {id} = request.params
-            const update_cliente = await repoCliente.update(request.body, id)
-
+            const update_cliente = await repoCliente.update(request.body, request.params.id)
             response.json(update_cliente)
       }
 

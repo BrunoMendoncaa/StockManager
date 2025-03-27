@@ -6,6 +6,7 @@ const routerCliente = Router()
 routerCliente.get('/clientes', ctrlCliente.index)
 routerCliente.get('/clientes/:telefone', ctrlCliente.findByPhone)
 routerCliente.get('/clientes/status/:status', ctrlCliente.getByStatus)
+
 routerCliente.post('/clientes', ctrlCliente.create)
 routerCliente.post('/clientes/enabledisable/:id', ctrlCliente.disableOrEnable)
 
