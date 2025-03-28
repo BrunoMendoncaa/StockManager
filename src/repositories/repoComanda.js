@@ -1,4 +1,5 @@
 import uuid4 from "uuid4"
+import suply from "../functions/suply.js"
 
 class repoComanda{
       constructor(){
@@ -19,7 +20,7 @@ class repoComanda{
       create(in_content){
             const {id_cliente} = in_content
             const id_comanda = uuid4()
-            const dt_criacao = new Date().toISOString().split('T')[0]
+            const dt_criacao = suply.currentDate
             const dt_alteracao = ''
             const status = 'pendente'
             const valor = 0
@@ -49,7 +50,7 @@ class repoComanda{
       update(in_content, in_id){
             const {status, valor} = in_content
             const comanda = this.comanda.find(currentComanda => currentComanda.id_comanda == in_id)
-            const dt_alteracao = new Date().toISOString().split('T')[0]
+            const dt_alteracao = suply.currentDate
 
             if(status){comanda.status = status}
             if(valor){comanda.valor = valor}

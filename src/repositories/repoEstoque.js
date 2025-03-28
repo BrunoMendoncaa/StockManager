@@ -1,4 +1,5 @@
 import uuid4 from "uuid4"
+import suply from "../functions/suply.js"
 
 class repoEstoque{
       constructor(){
@@ -26,7 +27,7 @@ class repoEstoque{
       create(in_content){
             const {nome, valor_unidade, qtd} = in_content
             const id_produto = uuid4()
-            const dt_criacao = new Date().toISOString().split('T')[0]
+            const dt_criacao = suply.currentDate
             const dt_alteracao = ''
             const valor_estoque = qtd * valor_unidade
 
@@ -49,7 +50,7 @@ class repoEstoque{
       update(in_content, in_id){
             const  {nome, valor_unidade, qtd} = in_content
             const produto = this.estoque.find(currentProduto => currentProduto.id_produto == in_id)
-            const dt_alteracao = new Date().toISOString().split('T')[0]
+            const dt_alteracao = suply.currentDate
 
             if(nome){produto.nome = nome}
             if(valor_unidade){ produto.valor_unidade = valor_unidade}

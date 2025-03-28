@@ -1,4 +1,5 @@
 import uuid4 from 'uuid4'
+import suply from '../functions/suply.js'
 
 class repoCliente{
       constructor(){
@@ -20,7 +21,7 @@ class repoCliente{
       async create(in_content){
             const {nome, telefone} = in_content
             const id_cliente = uuid4()
-            const dt_criacao = new Date().toISOString().split('T')[0]
+            const dt_criacao = suply.currentDate
             const dt_alteracao = ''
             const status = 'ativo'
 
@@ -45,7 +46,7 @@ class repoCliente{
       async update(in_content, in_id){
             console.log(`Alterando dados do cliente: ${in_id} `)
             const {nome, telefone} = in_content
-            const dt_alteracao = new Date().toISOString().split('T')[0]
+            const dt_alteracao = suply.currentDate
             const cliente = await this.clientes.find(currentCliente => currentCliente.id_cliente == in_id)
             
             cliente.dt_alteracao = dt_alteracao
