@@ -5,7 +5,7 @@ class repoComanda{
             this.comanda = [{
                   'id_comanda': 'exemplo123',
                   'id_cliente': 'exemplo123',
-                  'status': 'pendente',
+                  'status': 'finalizada',
                   'valor': 100,
                   'dt_criacao': '2025-03-28',
                   'dt_alteracao': ''
@@ -29,6 +29,11 @@ class repoComanda{
             this.comanda.push(new_comanda)
 
             return new_comanda
+      }
+
+      getByStatus(in_status){
+            const filter_comanda = this.comanda.filter(comanda => comanda.status == in_status)
+            return filter_comanda
       }
 }
 
