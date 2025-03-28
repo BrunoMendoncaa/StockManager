@@ -8,6 +8,7 @@ routerEstoque.get('/estoque', ctrlEstoque.showAll)
 routerEstoque.get('/estoque/:id', ctrlEstoque.getById)
 
 //POST
+routerEstoque.post('/estoque', ctrlEstoque.create)
 
 //DELETE
 
