@@ -28,6 +28,11 @@ class ctrlEstoque{
 
             res.status(201).json(new_product)
       }
+
+      delete(req, res){
+            repoEstoque.delete(req.params.id)
+            res.status(200).send('ok')
+      }
 }
 
 export default new ctrlEstoque

@@ -11,6 +11,7 @@ routerEstoque.get('/estoque/:id', ctrlEstoque.getById)
 routerEstoque.post('/estoque', ctrlEstoque.create)
 
 //DELETE
+routerEstoque.delete('/estoque/:id', ctrlEstoque.delete)
 
 //UPDATE
 

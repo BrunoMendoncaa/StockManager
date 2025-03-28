@@ -38,6 +38,14 @@ class repoEstoque{
             return new_product
       }
 
+      delete(in_id){
+            const updated_estoque = this.estoque.filter(produto => produto.id_produto != in_id)
+            this.estoque = updated_estoque
+
+            console.log(`produto com id [${in_id}] deletado`)
+            return
+      }
+
 }
 
 export default new repoEstoque()
