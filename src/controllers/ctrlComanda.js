@@ -25,6 +25,33 @@ class ctrlComanda{
 
             res.status(200).json(filter_comanda)
       }
+
+      async getById(req, res){
+            if(!req.params.id){
+                  res.status(400).json({'msg':'id_comanda é obrigatório'})
+                  return
+            }
+
+            const filter_comanda = await repoComanda.getById(req.params.id)
+
+            if(filter_comanda.length <= 0){
+                  res.status(404).json(filter_comanda)
+                  return
+            }
+
+            res.status(200).json(filter_comanda)
+
+      }
+
+      delete(req, res){
+            repoComanda.delete(req.params.id)
+            res.status(200).send('ok')
+      }
+
+      async update(req, res){
+            const update_comanda = await repoComanda.update(req.body, req.params.id)
+            res.status(200).json(update_comanda)
+      }
 }
 
 

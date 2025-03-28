@@ -35,6 +35,29 @@ class repoComanda{
             const filter_comanda = this.comanda.filter(comanda => comanda.status == in_status)
             return filter_comanda
       }
+
+      getById(in_id){
+            const filter_comanda = this.comanda.filter(comanda => comanda.id_comanda == in_id)
+            return filter_comanda
+      }
+
+      delete(in_id){
+            const filter_comanda = this.comanda.filter(comanda => comanda.id_comanda != in_id)
+            this.comanda = filter_comanda
+      }
+
+      update(in_content, in_id){
+            const {status, valor} = in_content
+            const comanda = this.comanda.find(currentComanda => currentComanda.id_comanda == in_id)
+            const dt_alteracao = new Date().toISOString().split('T')[0]
+
+            if(status){comanda.status = status}
+            if(valor){comanda.valor = valor}
+
+            comanda.dt_alteracao = dt_alteracao
+
+            return comanda
+      }
 }
 
 export default new repoComanda()
