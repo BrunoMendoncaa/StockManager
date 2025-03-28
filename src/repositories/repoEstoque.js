@@ -46,6 +46,21 @@ class repoEstoque{
             return
       }
 
+      update(in_content, in_id){
+            const  {nome, valor_unidade, qtd} = in_content
+            const produto = this.estoque.find(currentProduto => currentProduto.id_produto == in_id)
+            const dt_alteracao = new Date().toISOString().split('T')[0]
+
+            if(nome){produto.nome = nome}
+            if(valor_unidade){ produto.valor_unidade = valor_unidade}
+            if(qtd){produto.qtd = qtd}
+            if(qtd || valor_unidade){produto.valor_estoque = produto.qtd * produto.valor_unidade}
+
+            produto.dt_alteracao = dt_alteracao
+
+            return produto
+      }
+
 }
 
 export default new repoEstoque()

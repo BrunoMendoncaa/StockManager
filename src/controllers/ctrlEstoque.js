@@ -33,6 +33,11 @@ class ctrlEstoque{
             repoEstoque.delete(req.params.id)
             res.status(200).send('ok')
       }
+
+      async update(req, res){
+            const updated_produto = await repoEstoque.update(req.body, req.params.id)
+            res.status(200).json(updated_produto)
+      }
 }
 
 export default new ctrlEstoque

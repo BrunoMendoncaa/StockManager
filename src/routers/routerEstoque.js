@@ -13,6 +13,6 @@ routerEstoque.post('/estoque', ctrlEstoque.create)
 //DELETE
 routerEstoque.delete('/estoque/:id', ctrlEstoque.delete)
 
-//UPDATE
-
+//PUT
+routerEstoque.put('/estoque/:id', ctrlEstoque.update)
 export default routerEstoque
