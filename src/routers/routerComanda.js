@@ -7,7 +7,7 @@ const routerComanda = Router()
 routerComanda.get('/comanda', ctrlComanda.showAll)
 
 //POST
-
+routerComanda.post('/comanda', ctrlComanda.create)
 //DELETE
 
 //PUT
