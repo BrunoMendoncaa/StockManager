@@ -41,6 +41,11 @@ class ctrlVendas{
             const update_content = await repoVendas.update(req.params.id, req.body)
             res.json(update_content)
       }
+
+      delete(req, res){
+            repoVendas.delete(req.params.id)
+            res.send('ok')
+      }
 }
 
 export default new ctrlVendas

@@ -12,6 +12,7 @@ routerVendas.get('/vendas/data/venda', ctrlVendas.getByData)
 routerVendas.post('/vendas', ctrlVendas.create)
 
 //DELETE
+routerVendas.delete('/vendas/:id', ctrlVendas.delete)
 //PUT
 routerVendas.put('/vendas/:id', ctrlVendas.update)
 

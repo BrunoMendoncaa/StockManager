@@ -61,6 +61,10 @@ class repoVendas{
 
             return venda
       }
+
+      delete(in_id){
+            this.vendas = this.vendas.filter(vendas => vendas.id_venda != in_id)
+      }
 }
 
 export default new repoVendas()
