@@ -37,11 +37,11 @@ async function conexao(){
       )
 
       await pool.query(
-            `create table if not exists TB_COMANDA(
+            `create table if not exists TB_COMANDAS(
                   id_comanda varchar(50) primary key not null,
                   id_cliente varchar(50) not null,
                   status varchar(30) not null,
-                  valor decimal(5,2) not null,
+                  valor decimal(9,2) not null,
                   dt_criacao date not null,
                   dt_alteracao date
             )`

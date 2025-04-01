@@ -1,4 +1,4 @@
-import repoComanda from "../repositories/repoComandaLocal.js";
+import repoComanda from "../repositories/repoComandaDatabase.js";
 class ctrlComanda{
       async showAll(req, res){
             const content_comanda = await repoComanda.showAll()
