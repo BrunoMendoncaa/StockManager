@@ -1,4 +1,4 @@
-import repoVendas from "../repositories/repoVendasLocal.js";
+import repoVendas from "../repositories/repoVendasDatabase.js";
 
 class ctrlVendas{
       async showAll(req, res){
