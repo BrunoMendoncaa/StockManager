@@ -1,4 +1,5 @@
-import repoCliente from "../repositories/repoCliente.js";
+import repoCliente from "../repositories/repoClienteDatabase.js"
+
 class ctrlCliente {
       async index(request, response){
             const content = await repoCliente.findAll()
