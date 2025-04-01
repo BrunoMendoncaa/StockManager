@@ -1,4 +1,4 @@
-import repoEstoque from "../repositories/repoEstoque.js";
+import repoEstoque from "../repositories/repoEstoqueDatabase.js";
 
 class ctrlEstoque{
       async showAll(req, res){
