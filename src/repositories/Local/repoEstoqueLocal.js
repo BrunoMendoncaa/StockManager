@@ -1,5 +1,5 @@
 import uuid4 from "uuid4"
-import suply from '../functions/suply.js'
+import suply from '../../functions/suply.js'
 
 class repoEstoque{
       constructor(){

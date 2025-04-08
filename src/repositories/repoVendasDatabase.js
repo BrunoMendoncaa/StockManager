@@ -5,7 +5,19 @@ import conexao from '../database/db.js'
 const db = await conexao()
 
 class repoVendas{
-      constructor(){}
+      constructor(){
+            db.query(
+                  `create table if not exists TB_VENDAS(
+                        id_venda varchar(50) primary key not null,
+                        id_comanda varchar(50) not null,
+                        id_produto varchar(50) not null,
+                        qtd int not null,
+                        valor decimal(5,2) not null,
+                        dt_criacao date not null,
+                        dt_alteracao date
+                  )`
+            )
+      }
 
       async showAll(){
             const sql = await db.query('select * from tb_vendas')

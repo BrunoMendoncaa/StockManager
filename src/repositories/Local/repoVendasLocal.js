@@ -1,4 +1,4 @@
-import suply from '../functions/suply.js'
+import suply from '../../functions/suply.js'
 import uuid4 from 'uuid4'
 
 class repoVendas{

@@ -5,7 +5,18 @@ import conexao from '../database/db.js'
 const db = await conexao()
 
 class repoCliente{
-      constructor(){}
+      constructor(){
+            db.query(
+                  `create table if not exists TB_CLIENTES(
+                        id_cliente varchar(50) primary key not null,
+                        nome varchar(30) not null,
+                        telefone varchar(15) not null,
+                        status varchar(15) not null,
+                        dt_criacao date not null,
+                        dt_alteracao date
+                  )`
+            )
+      }
 
       async findAll(){
 
